@@ -3,12 +3,13 @@ namespace Command;
 
 use PrettyPrints;
 
-class RemoteControl{
+class RemoteControlWithUndo{
 
     use PrettyPrints;
 
     public $onCommands;// array
     public $offCommands;// array
+    public $undoComman;
 
     public function __construct(){
         $noCommand = new NoCommand();
@@ -17,6 +18,8 @@ class RemoteControl{
             $this->onCommands[$slot]  = $noCommand;
             $this->offCommands[$slot] = $noCommand;
         }
+
+        $this->undoCommand = $noCommand;
 
     }
 
@@ -27,10 +30,16 @@ class RemoteControl{
 
     public function onButtonPushed(int $slot):void{
         $this->onCommands[$slot]->execute();
+        $this->undoCommand = $this->onCommands[$slot];
     }
     
     public function offButtonPushed(int $slot):void{
         $this->offCommands[$slot]->execute();
+        $this->undoCommand = $this->offCommands[$slot];
+    }
+
+    public function undo():void{
+        $this->undoCommand->undo();
     }
 
     public function __toString(){

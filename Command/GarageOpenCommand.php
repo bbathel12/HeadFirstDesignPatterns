@@ -13,4 +13,7 @@ class GarageOpenCommand implements Command{
         $this->garage->up();
     }
  
+    public function undo():void{
+        $this->garage->down();
+    }
 }
