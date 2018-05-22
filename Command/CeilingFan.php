@@ -11,7 +11,7 @@ class CeilingFan{
     public  const LOW    = 1;
     public  const MEDIUM = 2;
     public  const HIGH   = 3;
-    public  const OFF    = 0; 
+    public  const OFF    = 0;
 
     public $location = "";
     public $speed;
