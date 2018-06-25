@@ -4,17 +4,17 @@ namespace Template;
 
 use Standard\PrettyPrints;
 
-class Tea{
+class Tea extends CaffieneBeverage{
 
     use PrettyPrints;
 
-    public function prepareRecipe() {
-        $this->boilWater();
-        $this->steepTeaBag();
-        $this->pourInCup();
-        $this->addLemon()    
+
+    public function brew(){
+        $this->pp("Steeping The Tea");
     }
 
-
-
+    public function addCondiments(){
+        $this->pp("Add Lemon");
+    }
 }
+

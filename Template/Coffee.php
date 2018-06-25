@@ -2,32 +2,17 @@
 
 namespace Template;
 
-use Standard/PrettyPrints;
+use Standard\PrettyPrints;
 
-class Coffee{
+class Coffee extends CaffieneBeverage{
 
     use PrettyPrints;
 
-    public function PrepareRecipe():void{
-        $this->boilWater();
-        $this->brewCoffeeGrinds();
-        $this->pourInCup();
-        $this->addSugarAndMilk();
-    }
-
-    public function boilWater(){
-        $this->pp("Boiling Water");
-    }
-
-    public function brewCOffeeGrinds(){
+    public function brew(){
         $this->pp("Pouring Coffee through Filter");
     }
 
-    public function pourInCup(){
-        $this->pp("Pouring into Cup");
-    }
-
-    public function addSugarAndMilk(){
+    public function addCondiments(){
         $this->pp("Add Sugar and Milk");
     }
 
